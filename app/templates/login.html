@@ -1,0 +1,52 @@
+{% extends 'base.html'%}
+
+
+{% block content%}
+<div class="container">
+<div class="card mt-5 mb-0 pb-0" style="margin-bottom: 250px; margin-left: 10%; margin-right: 10%; background-color: #333333;">
+  <div class="card-header text-white">Sign In</div>
+  <div class="card-body">
+	  <form method="post" >
+  <!-- Email input -->
+    <div class="col-12 mb-4">
+    <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
+    <div class="input-group mb-4">
+      <input type="email" name="email" class="form-control" id="inlineFormInputGroupUsername" placeholder="Email" />
+    </div>
+
+      <div class="col-12 ">
+    <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
+    <div class="input-group mb-4">
+      <input type="password" name="password" class="form-control" id="inlineFormInputGroupUsername" placeholder="Password" />
+    </div>
+  <!-- Password input -->
+  <div class="form-outline mb-4">
+  <!-- 2 column grid layout for inline styling -->
+
+  </div>
+
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-danger btn-block" style="background-color: #da0f47;">Sign in</button>
+  <center>
+  <a href="/auth/register" type="button" class="btn btn-link mt-2" >create account here</a>
+  </center>
+</form>
+  </div>
+</div>
+</div>
+
+{% if errors%}
+<div class="alert alert-danger" role="alert" data-mdb-color="danger">
+	<i class="fas fa-times-circle me-3"></i>{{errors}}
+      </div>
+{% endif %}
+{% if ok %}
+
+<div class="alert alert-success" role="alert" data-mdb-color="success">
+	<i class="fas fa-check-circle me-3"></i>{{ok}}
+      </div>
+
+{% endif %}
+{% endblock content%}
+
+

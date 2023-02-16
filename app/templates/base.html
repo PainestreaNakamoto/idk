@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Register</title>
+	<!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
+  rel="stylesheet"
+/>
+    </head>
+    <body style="background-color: #1f1f1f;">
+
+<nav class="navbar navbar-expand-lg " style="background-color: #444443;">
+  <!-- Container wrapper -->
+  <div class="container">
+    <!-- Navbar brand -->
+    <a class="navbar-brand me-2" style="color: #fa586a; font-weight: 400px;"href="/">
+		    <b> BadPyApple Music</b>
+    </a>
+    <!-- Collapsible wrapper -->
+    <div>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      </ul>
+      <div class="d-flex align-items-center">
+	  {% if is_login %}
+        <a href="/ei" type="button" class="btn btn-danger btn-sm" style="background-color: #d60017;">
+          <i class="fas fa-user fa-sm"></i> Welcome!
+        </a>
+	  {% else %}
+        <a href="/auth/login" type="button" class="btn btn-danger btn-sm" style="background-color: #d60017;">
+          <i class="fas fa-user fa-sm"></i> Sign In
+        </a>
+	  {% endif %}
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- Navbar -->
+
+	    {% block content %}
+	    {% endblock %}
+    </body>
+
+<footer class=" mt-5 text-center fixed-bottom  text-white" style="background-color: #444443;">
+  <div class="text-center p-2" >
+    © 2021 Copyright:
+    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Painestrea Nakamoto</a>
+  </div>
+</footer>
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"
+></script>
+</html>
+

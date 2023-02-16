@@ -1,18 +1,13 @@
 from fastapi import FastAPI, Request
-from fastapi.responses import HTMLResponse
-from fastapi.staticfiles import StaticFiles
-from fastapi.templating import Jinja2Templates
-import base64
-import requests
 from fastapi.middleware.cors import CORSMiddleware
-from math import floor
-from services import spotify
+from app.endpoint import router
+from app import models, database, services
+
+models.Base.metadata.create_all(bind=database.engine)
 
 app = FastAPI()
 
-origins = [
-"*"
-]
+origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
@@ -21,13 +16,5 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-templates = Jinja2Templates(directory="templates")
 
-
-@app.get("/", response_class=HTMLResponse)
-async def read_item(request: Request):
-    spotify_obj = spotify.SpotifyService()
-    items = spotify_obj.all()
-    return templates.TemplateResponse("index.html", {"request": request, "items": items})
-
-
+app.include_router(router)
