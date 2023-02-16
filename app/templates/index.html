@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+		<meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<style>
+.my-table {
+	background-color: #262626;
+}
+
+	</style>
+	<body style="background-color: #1f1f1f;" >
+		<div class="container pt-3 pb-3">
+		<h1 style="color: #ededed;">Top 50: Thailand</h1>
+		<h2 style="color: #fa586a; font-weight: 400px;">BadPyApple Music</h1>
+		</div>
+		<table class="table my-table table-responsive text-white table-striped table-borderless" style="background-color: #232323;">
+			<thead>
+			    <tr>
+			      <th style="font-size: 14px;" scope="col">Songs</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+				{% for item in items %}
+			    <tr class="">
+			      <th style="height: 26px; width: 36px;" scope="row" >
+				      <img src="{{ item.image }}" class="rounded" width="100%" height="100%" alt="song picture" style="max-width: 40px; max-height: 40px; min-width: 40px; min-height: 40px;   object-fit: cover;   object-position: center center;">
+			      </th>
+				      <td class="text-white py-3" style="font-weight: 600; font-size: 13px;">{{ item.rank }}</td>
+			      <td class="text-white py-3 " style="font-weight: 600; font-size: 13px;">
+				      <ul style="list-style: none;">
+					      <li><a href="{{ item.url }}" class="text-white text-decoration-none" >{{ item.name|truncate(26) }}</a> </li>
+				      <li style="font-size: 11px; color: #a0a0a0;"> {{ item.artist|truncate(20) }} </li>
+				      </ul> 
+			      </td>
+			      <td class="py-3 " style="color: #9f9f9f; font-weight: 600;font-size: 13px;">{{ item.time }}</td>
+
+			    </tr>
+            			
+           			 {% endfor %}
+			  </tbody>
+		</table>
+	</body>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</html>
